@@ -1,6 +1,10 @@
 from PIL import Image
 import streamlit as st
-from supervised_algo import df_performance_metrics
+import pickle
+
+file = open('pkl/metrics_semi_supervised.pkl', 'rb')
+metrics_semi_supervised= pickle.load(file)
+file.close()
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>SL INTERFACE</h1>", unsafe_allow_html=True)
@@ -25,4 +29,4 @@ Ensuite nous allons tester le modèle avec le jeu de test (test set) et pouvoir 
 Ces indicateurs vont nous permettre de déterminer l'algorithme le plus efficace pour ce problème.
 """)
 st.write("")
-st.dataframe(df_performance_metrics)
+st.dataframe(metrics_semi_supervised)
