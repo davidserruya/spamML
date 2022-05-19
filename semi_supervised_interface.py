@@ -1,6 +1,10 @@
 import streamlit as st
-from semi_supervised_algo import df_performance_metrics
+import pickle
 from PIL import Image
+
+file = open('metrics_semi_supervised.pkl', 'rb')
+metrics_semi_supervised= pickle.load(file)
+file.close()
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>SSL INTERFACE</h1>", unsafe_allow_html=True)
@@ -23,4 +27,4 @@ Pour chaque algorithme, nous allons l'entraîner et lui permettre de définir un
 Ensuite nous allons tester le modèle avec le jeu de test (test set) et pouvoir calculer la précision, le rappel et le taux de reconnaissance de chaque modèle.  
 Ces indicateurs vont nous permettre de déterminer l'algorithme le plus efficace pour ce problème.
 """)
-st.dataframe(df_performance_metrics)
+st.dataframe(metrics_semi_supervised)
