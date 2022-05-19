@@ -54,7 +54,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: red;'>MAIL MENU</h1>"
 mail_text = st.sidebar.text_area("Entrez le contenu texte de votre mail :")
 option = st.sidebar.selectbox(
      'Quel algorithme choisissez-vous ?',
-     ('Logistic Regression', 'Naive Bayes', 'KNN','SelfTrainingClassifierLR','SelfTrainingClassifierNB','LabelSpreading','LabelPropagation'))
+     ('Logistic Regression', 'Naive Bayes', 'KNN','SelfTrainingClassifierLR','SelfTrainingClassifierNB'))
 button = st.sidebar.button("Lancer")
 
 
