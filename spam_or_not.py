@@ -26,7 +26,9 @@ modelLR=table[0]
 modelNB=table[1]
 modelKNN=table[2]
 tfidf_S=table[3]
-file = open('pkl/models_SS.pkl', 'rb')
+zip = ZipFile('pkl/models_SS.pkl')
+zip.extractall()
+file = open('zip', 'rb')
 table2= pickle.load(file)
 file.close()
 model_SF_LR=table2[0]
