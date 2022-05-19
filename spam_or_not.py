@@ -32,18 +32,18 @@ file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
 tfidf_SS1=table2[5]
-file = open('pkl/Models_SS2.pkl', 'rb')
-table= pickle.load(file)
-file.close()
-model_SF_KNN=table3[0]
-tfidf_SS2=table3[1]
-file = open('pkl/Models_SS3.pkl', 'rb')
-table= pickle.load(file)
-file.close()
-modelLS=table4[0]
-modelLP=table4[1]
-tfidf_SS3=table4[2]
-tableau_text=[]
+#file = open('pkl/Models_SS2.pkl', 'rb')
+#table= pickle.load(file)
+#file.close()
+#model_SF_KNN=table3[0]
+#tfidf_SS2=table3[1]
+#file = open('pkl/Models_SS3.pkl', 'rb')
+#table= pickle.load(file)
+#file.close()
+#modelLS=table4[0]
+#modelLP=table4[1]
+#tfidf_SS3=table4[2]
+#tableau_text=[]
 #
 
 # pre-processing text function 
