@@ -35,11 +35,17 @@ c'est obligatoire d'avoir [Python](https://www.python.org/) d'installer sur sa m
 Après avoir cloner ce projet, vous devez executer les commandes suivantes :
 
 ```bash
-# Installation de la dépendance streamlit
+# Installation de la bibliothèque streamlit
 $ python -m pip install streamlit
-# Installation de la dépendance pandas
+# Installation de la bibliothèque streamlit_option_menu
+$ python -m pip install streamlit_option_menu
+# Installation de la bibliothèque pandas
 $ python -m pip install pandas
-# Installation de la dépendance sklearn
+# Installation de la bibliothèque nltk
+$ python -m pip install nltk
+# Installation de la bibliothèque matplotlib
+$ python -m pip install matplotlib
+# Installation de la bibliothèque sklearn
 $ python -m pip install sklearn
 ```
 
