@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 from PIL import Image
 
-file = open('pkl/metrics_semi_supervised.pkl', 'rb')
+file = open('pkl/metrics_semi_supvervised.pkl', 'rb')
 metrics_semi_supervised= pickle.load(file)
 file.close()
 
