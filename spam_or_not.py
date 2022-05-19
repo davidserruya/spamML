@@ -32,17 +32,12 @@ file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
 tfidf_SS1=table2[2]
-#file = open('pkl/Models_SS2.pkl', 'rb')
-#table3= pickle.load(file)
-#file.close()
-#model_SF_KNN=table3[0]
-#tfidf_SS2=table3[1]
-#file = open('pkl/Models_SS3.pkl', 'rb')
-#table4= pickle.load(file)
-#file.close()
-#modelLS=table4[0]
-#modelLP=table4[1]
-#tfidf_SS3=table4[2]
+file = open('pkl/Models_SS2.pkl', 'rb')
+table3= pickle.load(file)
+file.close()
+modelLS=table3[0]
+modelLP=table3[1]
+tfidf_SS2=table3[2]
 tableau_text=[]
 #
 
@@ -65,7 +60,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: red;'>MAIL MENU</h1>"
 mail_text = st.sidebar.text_area("Entrez le contenu texte de votre mail :")
 option = st.sidebar.selectbox(
      'Quel algorithme choisissez-vous ?',
-     ('Logistic Regression', 'Naive Bayes', 'KNN','SelfTrainingClassifierLR','SelfTrainingClassifierNB','SelfTrainingClassifierKNN','LabelSpreading','LabelPropagation'))
+     ('Logistic Regression', 'Naive Bayes', 'KNN','SelfTrainingClassifierLR','SelfTrainingClassifierNB','LabelSpreading','LabelPropagation'))
 button = st.sidebar.button("Lancer")
 
 
@@ -103,20 +98,15 @@ if button:
            st.write("D'après SelfTrainingClassifier, votre mail est :")
            predicted= model_SF_NB.predict(tfidf_SS1.transform(tableau_text).toarray())
            resultat=predicted[0]    
-     elif(option=='SelfTrainingClassifierKNN'): 
-           st.write("Pour déterminer la nature du mail, vous avez choisi SelfTrainingClassifier avec KNN.")
-           st.write("D'après SelfTrainingClassifier, votre mail est :")
-           predicted= model_SF_KNN.predict(tfidf_SS2.transform(tableau_text).toarray())
-           resultat=predicted[0]
      elif(option=='LabelSpreading'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Spreading.")
            st.write("D'après Label Spreading, votre mail est :")
-           predicted= modelLS.predict(tfidf_SS3.transform(tableau_text).toarray())
+           predicted= modelLS.predict(tfidf_SS2.transform(tableau_text).toarray())
            resultat=predicted[0]
      elif(option=='LabelPropagation'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Propagation.")
            st.write("D'après Label Propagation, votre mail est :")
-           predicted= modelLP.predict(tfidf_SS3.transform(tableau_text).toarray())
+           predicted= modelLP.predict(tfidf_SS2.transform(tableau_text).toarray())
            resultat=predicted[0]
      # display of the result
      if(resultat==0):
