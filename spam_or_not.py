@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 import pandas as pd
-import zipfile36
+import zipfile36 as zipfile
 import re
 import nltk 
 nltk.download('stopwords')
@@ -27,7 +27,7 @@ modelLR=table[0]
 modelNB=table[1]
 modelKNN=table[2]
 tfidf_S=table[3]
-zip = ZipFile('pkl/Models_SS.pkl.zip')
+zip = zipfile('pkl/Models_SS.pkl.zip')
 zip.extractall()
 file = open('zip', 'rb')
 table2= pickle.load(file)
