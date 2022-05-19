@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 
 file = open('pkl/metrics_supervised.pkl', 'rb')
-metrics_semi_supervised= pickle.load(file)
+metrics_supervised= pickle.load(file)
 file.close()
 
 # Affichage page principale
@@ -29,4 +29,4 @@ Ensuite nous allons tester le modèle avec le jeu de test (test set) et pouvoir 
 Ces indicateurs vont nous permettre de déterminer l'algorithme le plus efficace pour ce problème.
 """)
 st.write("")
-st.dataframe(metrics_semi_supervised)
+st.dataframe(metrics_supervised)
