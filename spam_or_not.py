@@ -32,14 +32,7 @@ file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
 tfidf_SS1=table2[2]
-file = open('pkl/Models_SS2.pkl', 'rb')
-table3= pickle.load(file)
-file.close()
-modelLS=table3[0]
-modelLP=table3[1]
-tfidf_SS2=table3[2]
-tableau_text=[]
-#
+
 
 # pre-processing text function 
 def clean_text(text):
@@ -98,16 +91,6 @@ if button:
            st.write("D'après SelfTrainingClassifier, votre mail est :")
            predicted= model_SF_NB.predict(tfidf_SS1.transform(tableau_text).toarray())
            resultat=predicted[0]    
-     elif(option=='LabelSpreading'): 
-           st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Spreading.")
-           st.write("D'après Label Spreading, votre mail est :")
-           predicted= modelLS.predict(tfidf_SS2.transform(tableau_text).toarray())
-           resultat=predicted[0]
-     elif(option=='LabelPropagation'): 
-           st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Propagation.")
-           st.write("D'après Label Propagation, votre mail est :")
-           predicted= modelLP.predict(tfidf_SS2.transform(tableau_text).toarray())
-           resultat=predicted[0]
      # display of the result
      if(resultat==0):
          image = Image.open('picture/notspam.png')
