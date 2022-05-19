@@ -31,7 +31,7 @@ table2= pickle.load(file)
 file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
-tfidf_SS1=table2[5]
+tfidf_SS1=table2[2]
 #file = open('pkl/Models_SS2.pkl', 'rb')
 #table3= pickle.load(file)
 #file.close()
