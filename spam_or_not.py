@@ -32,6 +32,7 @@ file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
 tfidf_SS1=table2[2]
+tableau_text=[]
 
 
 # pre-processing text function 
