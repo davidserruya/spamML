@@ -6,7 +6,6 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 import pandas as pd
-import zipfile36 as zipfile
 import re
 import nltk 
 nltk.download('stopwords')
@@ -27,18 +26,23 @@ modelLR=table[0]
 modelNB=table[1]
 modelKNN=table[2]
 tfidf_S=table[3]
-with ZipFile('pkl/Models_SS.pkl.zip') as myzip:
-    with myzip.open('Models_SS.pkl') as test:
-       file = open('zip', 'rb') 
-       table2= pickle.load(file)
-       file.close()
-    
+file = open('pkl/Models_SS1.pkl', 'rb')
+table= pickle.load(file)
+file.close()
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
-model_SF_KNN=table2[2]
-modelLS=table2[3]
-modelLP=table2[4]
-tfidf_SS=table2[5]
+tfidf_SS1=table2[5]
+file = open('pkl/Models_SS2.pkl', 'rb')
+table= pickle.load(file)
+file.close()
+model_SF_KNN=table3[0]
+tfidf_SS2=table3[1]
+file = open('pkl/Models_SS3.pkl', 'rb')
+table= pickle.load(file)
+file.close()
+modelLS=table4[0]
+modelLP=table4[1]
+tfidf_SS3=table4[2]
 tableau_text=[]
 #
 
@@ -92,27 +96,27 @@ if button:
      elif(option=='SelfTrainingClassifierLR'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi SelfTrainingClassifier avec Logistic Regression.")
            st.write("D'après SelfTrainingClassifier, votre mail est :")
-           predicted= model_SF_LR.predict(tfidf_SS.transform(tableau_text).toarray())
+           predicted= model_SF_LR.predict(tfidf_SS1.transform(tableau_text).toarray())
            resultat=predicted[0]
      elif(option=='SelfTrainingClassifierNB'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi SelfTrainingClassifier avec Naive Bayes.")
            st.write("D'après SelfTrainingClassifier, votre mail est :")
-           predicted= model_SF_NB.predict(tfidf_SS.transform(tableau_text).toarray())
+           predicted= model_SF_NB.predict(tfidf_SS1.transform(tableau_text).toarray())
            resultat=predicted[0]    
      elif(option=='SelfTrainingClassifierKNN'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi SelfTrainingClassifier avec KNN.")
            st.write("D'après SelfTrainingClassifier, votre mail est :")
-           predicted= model_SF_KNN.predict(tfidf_SS.transform(tableau_text).toarray())
+           predicted= model_SF_KNN.predict(tfidf_SS2.transform(tableau_text).toarray())
            resultat=predicted[0]
      elif(option=='LabelSpreading'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Spreading.")
            st.write("D'après Label Spreading, votre mail est :")
-           predicted= modelLS.predict(tfidf_SS.transform(tableau_text).toarray())
+           predicted= modelLS.predict(tfidf_SS3.transform(tableau_text).toarray())
            resultat=predicted[0]
      elif(option=='LabelPropagation'): 
            st.write("Pour déterminer la nature du mail, vous avez choisi l'algorithme Label Propagation.")
            st.write("D'après Label Propagation, votre mail est :")
-           predicted= modelLP.predict(tfidf_SS.transform(tableau_text).toarray())
+           predicted= modelLP.predict(tfidf_SS3.transform(tableau_text).toarray())
            resultat=predicted[0]
      # display of the result
      if(resultat==0):
