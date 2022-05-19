@@ -27,11 +27,12 @@ modelLR=table[0]
 modelNB=table[1]
 modelKNN=table[2]
 tfidf_S=table[3]
-zip = zipfile('pkl/Models_SS.pkl.zip')
-zip.extractall()
-file = open('zip', 'rb')
-table2= pickle.load(file)
-file.close()
+with ZipFile('pkl/Models_SS.pkl.zip') as myzip:
+    with myzip.open('Models_SS.pkl') as test:
+       file = open('zip', 'rb') 
+       table2= pickle.load(file)
+       file.close()
+    
 model_SF_LR=table2[0]
 model_SF_NB=table2[1]
 model_SF_KNN=table2[2]
