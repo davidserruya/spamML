@@ -43,7 +43,7 @@ tfidf_SS1=table2[2]
 #modelLS=table4[0]
 #modelLP=table4[1]
 #tfidf_SS3=table4[2]
-#tableau_text=[]
+tableau_text=[]
 #
 
 # pre-processing text function 
