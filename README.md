@@ -28,7 +28,7 @@
 
 ## Prérequis
 
-La présence de [Python](https://www.python.org/) sur la mchine est nécessaire.
+La présence de [Python](https://www.python.org/) sur la machine est nécessaire.
 
 ## Build Setup
 
